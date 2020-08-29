@@ -5,7 +5,7 @@ import * as firebase from '../provider/firebase'
 
 
 
-const Login = (props)=>{
+const Login = ({ navigation })=>{
     const [info, setInfo] = useState({});
     const loginEmail = ()=>{
         firebase.loginEmail(info)
@@ -39,10 +39,13 @@ const Login = (props)=>{
                     placeholder="password"  secureTextEntry 
                     onChangeText={(text)=>{setInfo({...info, password:text})}}/>
             <View >
-                <Button style={{marginBottom:'10px'}} mode="contained" onPress={loginEmail}>Login</Button>
-                <Button style={{marginBottom:'10px'}} mode="contained" onPress={loginGoogle}>Google</Button>
-                <Button style={{marginBottom:'10px'}} mode="contained" onPress={loginFacebook}>Facebook</Button>
-                <Button>Cadastrar</Button>
+                <Button  mode="contained" onPress={loginEmail}>Login</Button>
+                <Button  mode="contained" onPress={loginGoogle}>Google</Button>
+                <Button  mode="contained" onPress={loginFacebook}>Facebook</Button>
+            </View>
+            <View style={{flex:2}}>
+                <Button onPress={()=>{navigation.navigate('logon')}}>Cadastrar</Button>
+                <Button onPress={()=>{navigation.navigate('password')}}>Esqueci a senha</Button>
             </View>
 
         </View>
@@ -57,7 +60,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     input:{
-        marginBottom:'10px',
+    
     }
 
   });

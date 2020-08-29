@@ -5,7 +5,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.loginFacebook = exports.loginGoogle = exports.loginEmail = exports.createUser = void 0;
+exports.passwordRecovery = exports.loginFacebook = exports.loginGoogle = exports.loginEmail = exports.createUser = void 0;
 
 var firebase = _interopRequireWildcard(require("firebase/app"));
 
@@ -53,3 +53,10 @@ var loginFacebook = function loginFacebook() {
 };
 
 exports.loginFacebook = loginFacebook;
+
+var passwordRecovery = function passwordRecovery(_ref3) {
+  var email = _ref3.email;
+  return firebase.auth().sendPasswordResetEmail(email);
+};
+
+exports.passwordRecovery = passwordRecovery;

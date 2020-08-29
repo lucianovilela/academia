@@ -24,3 +24,7 @@ export const loginEmail=({email, password})=>{
  export const loginFacebook=()=>{
     return firebase.auth().signInWithPopup(new firebase.auth.FacebookAuthProvider());
 }
+
+export const passwordRecovery=({email})=>{
+    return firebase.auth().sendPasswordResetEmail(email);
+}
