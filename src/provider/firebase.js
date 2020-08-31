@@ -5,9 +5,8 @@ import firebaseConfig from './firebaseConfig';
 
 firebase.initializeApp(firebaseConfig);
 
-firebase.auth().onAuthStateChanged((user)=>{
-    console.debug(user);
-});
+
+
 
 export const createUser=({email, password})=>{
    return  firebase.auth().createUserWithEmailAndPassword(email, password);
@@ -28,3 +27,9 @@ export const loginEmail=({email, password})=>{
 export const passwordRecovery=({email})=>{
     return firebase.auth().sendPasswordResetEmail(email);
 }
+
+export const onChangeUser=(observer)=>{
+    if(typeof observer === "function" ){
+        return firebase.auth().onAuthStateChanged(observer);
+    }
+};
