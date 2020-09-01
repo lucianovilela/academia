@@ -6,8 +6,15 @@ import firebaseConfig from './firebaseConfig';
 firebase.initializeApp(firebaseConfig);
 
 
+export const logout=()=>{
+    return firebase.auth().logout();
+}
 
 
+export const loginPorEmail=({email})=>{
+    return  firebase.auth().sendSignInLinkToEmail(email);
+ }
+ 
 export const createUser=({email, password})=>{
    return  firebase.auth().createUserWithEmailAndPassword(email, password);
 }

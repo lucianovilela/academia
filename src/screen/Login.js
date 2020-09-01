@@ -1,35 +1,29 @@
-import React, { useState } from "react";
-import { View, SafeAreaView } from "react-native";
-import { TextInput, Button, Avatar } from "react-native-paper";
-import * as firebase from "../provider/firebase";
+import React, { useState, useContext } from "react";
+import { View, SafeAreaView, Alert } from "react-native";
+import { TextInput, Button, Avatar, Text } from "react-native-paper";
+import ContextAuth from "../provider/AuthProvider";
 
 const Login = ({ navigation }) => {
-  const [info, setInfo] = useState({});
+  const authContext = useContext(ContextAuth);
+  const [info, setInfo] = useState({ email: null, password: null });
   const loginEmail = () => {
-    firebase.loginEmail(info).then((result) => {
-      console.log(result);
-    });
-  };
-  const loginGoogle = () => {
-    firebase.loginGoogle().then((result) => {
-      console.log(result);
-    });
-  };
-  const loginFacebook = () => {
-    firebase.loginFacebook().then((result) => {
-      console.log(result);
-    });
+    authContext.action
+      .signIn(info)
+      .then(() => {
+        navigation.navigate("home");
+      })
+      .catch((e) => alert(e.message));
   };
 
   return (
     <SafeAreaView
       style={{ flex: 1, alignContent: "center", justifyContent: "center" }}
     >
-      <View style>
+      <View>
         <View style={{ alignItems: "center" }}>
           <Avatar.Text size={50} label="US" />
         </View>
-        <View >
+        <View>
           <TextInput
             label="email"
             placeholder="email"

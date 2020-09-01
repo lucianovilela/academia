@@ -1,20 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity, SafeAreaView } from "react-native";
 import { TextInput, Button, Avatar } from "react-native-paper";
-import ContextAuth from "../provider/AuthProvider";
+import * as firebase from "../provider/firebase";
 
-
-const Logon = ({ navigation }) => {
-  const authContext = useContext(ContextAuth);
-
+const Email = ({ navigation }) => {
   const [info, setInfo] = useState({});
   const loginEmail = () => {
-    authContext.action
-    .signUp(info)
-    .then(() => {
-      navigation.navigate("home");
-    })
-    .catch((e) => alert(e.message));
+    firebase(info).loginEmail(info).then((result) => {
+      console.log(result);
+    });
   };
 
   return (
@@ -30,17 +24,9 @@ const Logon = ({ navigation }) => {
           }}
         />
 
-        <TextInput
-          label="password"
-          placeholder="password"
-          secureTextEntry
-          onChangeText={(text) => {
-            setInfo({ ...info, password: text });
-          }}
-        />
         <View>
           <Button mode="contained" onPress={loginEmail}>
-            Cadastrar
+            Recuperar
           </Button>
         </View>
       </View>
@@ -48,4 +34,4 @@ const Logon = ({ navigation }) => {
   );
 };
 
-export default Logon;
+export default Email;

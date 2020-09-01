@@ -1,18 +1,25 @@
-import React from 'react';
-import { View } from 'react-native';
-import { Card , TextInput} from 'react-native-paper';
+import React, { useContext } from "react";
+import { View, SafeAreaView, Image } from "react-native";
+import { Card, TextInput, Text,  } from "react-native-paper";
+import ContextAuth from "../provider/AuthProvider";
 
-const Home = (props)=>{
-    return(
-        <View>
-            <Card>
-                <Text>Home</Text>
+const Home = ({ navigator} ) => {
+  const authContext = useContext(ContextAuth);
+  const user = authContext.state.user;
 
-            </Card>
-        
-        </View>
-        
-    );
-}
+  return (
+    <SafeAreaView
+      style={{ flex: 1, alignContent: "center", justifyContent: "center"}}
+
+    >
+      <View>
+        <Text>Home</Text>
+        <Text>{user.displayName}</Text>
+        <Text>{user.email}</Text>
+        <Image source={{uri:user.photoURL}} width={50}></Image>
+      </View>
+    </SafeAreaView>
+  );
+};
 
 export default Home;
