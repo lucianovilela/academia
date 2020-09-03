@@ -17,7 +17,7 @@ const Login = ({ navigation }) => {
 
   return (
     <SafeAreaView
-      style={{ flex: 1, alignContent: "center", justifyContent: "center" }}
+      style={{ flex: 1, alignItens: "center", justifyContent: "center" }}
     >
       <View>
         <View style={{ alignItems: "center" }}>
