@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { View, SafeAreaView, Image } from "react-native";
-import { Card, TextInput, Text, Button} from "react-native-paper";
+import { View, Image } from "react-native";
+import { Text, Button } from "react-native-paper";
 import ContextAuth from "../provider/AuthProvider";
+import SafeAreaView from "react-native-safe-area-view";
 
 const Home = ({ navigation }) => {
   const authContext = useContext(ContextAuth);

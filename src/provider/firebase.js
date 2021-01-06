@@ -12,7 +12,8 @@ export const logout=()=>{
 
 
 export const loginPorEmail=({email})=>{
-    return  firebase.auth().sendSignInLinkToEmail(email);
+    return  firebase.auth().sendSignInLinkToEmail(email)
+            .then((result)=>(result));
  }
  
 export const createUser=({email, password})=>{

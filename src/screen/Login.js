@@ -3,16 +3,17 @@ import { View, SafeAreaView, Alert } from "react-native";
 import { TextInput, Button, Avatar, Text } from "react-native-paper";
 import ContextAuth from "../provider/AuthProvider";
 
+
 const Login = ({ navigation }) => {
   const authContext = useContext(ContextAuth);
   const [info, setInfo] = useState({ email: null, password: null });
   const loginEmail = () => {
     authContext.action
-      .signIn(info)
+      .signIn( info )
       .then(() => {
         navigation.navigate("home");
       })
-      .catch((e) => alert(e.message));
+      .catch((e) => Alert.alert(e.message));
   };
 
   return (
