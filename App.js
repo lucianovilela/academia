@@ -11,8 +11,10 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import AuthScreen from "./src/screen/AuthScreen";
 import { AuthProvider } from "./src/provider/AuthProvider";
 import Home from "./src/screen/Home";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { FontAwesome5 } from '@expo/vector-icons';
 
-const Drawer = createDrawerNavigator();
+const Tab = createBottomTabNavigator();
 
 export default function App({ navigation }) {
   
@@ -21,10 +23,10 @@ export default function App({ navigation }) {
     <NavigationContainer>
       <AuthProvider >
         
-        <Drawer.Navigator initialRouteName="home">
-          <Drawer.Screen name="login" component={AuthScreen} options={{ headerShown: false }}/>
-          <Drawer.Screen name="home" component={Home} />
-        </Drawer.Navigator>
+        <Tab.Navigator initialRouteName="home">
+          <Tab.Screen name="home" component={Home} options={{ tabBarIcon:()=>(<FontAwesome5 name="home"  color="black" />) }}/>
+          <Tab.Screen name="login" component={AuthScreen} options={{ headerShown: false }}/>
+        </Tab.Navigator>
         
       
       </AuthProvider>
