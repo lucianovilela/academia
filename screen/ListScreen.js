@@ -14,7 +14,7 @@ import {
   ListItem
 } from 'react-native-elements';
 
-import ContextAuth from "./InfoProvider";
+import ContextAuth from "../components/InfoProvider";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 function ListScreen({ navigation, route }) {

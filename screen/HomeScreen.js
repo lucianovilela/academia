@@ -5,9 +5,10 @@ import { View, SafeAreaView } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon, ThemeProvider } from 'react-native-elements';
 
-import ContextAuth from "./InfoProvider";
+import ContextAuth from "../components/InfoProvider";
 import LoginScreen from "../screen/LoginScreen";
 import AddScreen from "../screen/AddScreen";
+import HistoricoScreen from "../screen/HistoricoScreen";
 
 
 import style from "../components/AppStyle";
@@ -27,7 +28,7 @@ function HomeScreen({ navigation, route }) {
     <ThemeProvider >
       <SafeAreaView style={style.container}>
         <Tab.Navigator>
-          
+
           <Tab.Screen
 
             name="Add"
@@ -36,6 +37,15 @@ function HomeScreen({ navigation, route }) {
             options={{
               title: "Add",
               tabBarIcon: () => (<Icon type="material" name="add-circle" size={20} />)
+            }}
+          />
+          <Tab.Screen
+            name="Historico"
+            component={HistoricoScreen}
+
+            options={{
+              title: "Historico",
+              tabBarIcon: () => (<Icon type="material" name="list" size={20} />)
             }}
           />
           <Tab.Screen

@@ -2,13 +2,13 @@ import * as React from "react";
 import { useState, useEffect, useContext } from "react";
 import { View, Text, StyleSheet, Alert } from "react-native";
 import Constants from "expo-constants";
-import style from "../components/AppStyle";
+import style from "./AppStyle";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Input, Button, SocialIcon, Divider, Avatar, Image } from "react-native-elements";
 
-import ContextAuth from "../components/InfoProvider";
+import ContextAuth from "./InfoProvider";
 
-function LoginScreen({ navigation }) {
+function GurpoScreen({ navigation }) {
   const authContext = useContext(ContextAuth);
 
   const login = () => {
