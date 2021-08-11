@@ -6,15 +6,15 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon, ThemeProvider } from 'react-native-elements';
 
 import ContextAuth from "./InfoProvider";
-//import LoginScreen from "./LoginScreen";
-import SignoScreen from "./SignoScreen";
-import ListScreen from "./ListScreen";
+import LoginScreen from "./LoginScreen";
+import AddScreen from "./AddScreen";
 
 import style from "./AppStyle";
 
 import {
   AdMobBanner,
 } from 'expo-ads-admob';
+import AddScreen from "./AddScreen";
 
 
 
@@ -28,32 +28,25 @@ function HomeScreen({ navigation, route }) {
       <SafeAreaView style={style.container}>
         <Tab.Navigator>
           <Tab.Screen
-            name="signs"
-            component={SignoScreen}
-            options={{
-              title: "signs",
-
-              tabBarIcon: () => (<Icon name="search" size={20} />)
-            }}
-          />
-          <Tab.Screen
-            name="Lista"
-            component={ListScreen}
+            name="Add"
+            component={AddScreen}
 
             options={{
-              title: "history",
-              tabBarIcon: () => (<Icon type="material" name="list" size={20} />)
+              title: "Add",
+              tabBarIcon: () => (<Icon type="material" name="add-circle" size={20} />)
             }}
           />
-          {/*
+        </Tab.Navigator>
+        <Tab.Navigator>
           <Tab.Screen
             name="Login"
             component={LoginScreen}
+
             options={{
               title: "Login",
+              tabBarIcon: () => (<Icon type="material" name="add-circle" size={20} />)
             }}
           />
-          */}
         </Tab.Navigator>
         <AdMobBanner
           bannerSize="smartBannerPortrait"
