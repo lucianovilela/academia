@@ -6,15 +6,15 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon, ThemeProvider } from 'react-native-elements';
 
 import ContextAuth from "./InfoProvider";
-import LoginScreen from "./LoginScreen";
-import AddScreen from "./AddScreen";
+import LoginScreen from "../screen/LoginScreen";
+import AddScreen from "../screen/AddScreen";
 
-import style from "./AppStyle";
+
+import style from "../components/AppStyle";
 
 import {
   AdMobBanner,
 } from 'expo-ads-admob';
-import AddScreen from "./AddScreen";
 
 
 
@@ -27,7 +27,9 @@ function HomeScreen({ navigation, route }) {
     <ThemeProvider >
       <SafeAreaView style={style.container}>
         <Tab.Navigator>
+          
           <Tab.Screen
+
             name="Add"
             component={AddScreen}
 
@@ -36,8 +38,6 @@ function HomeScreen({ navigation, route }) {
               tabBarIcon: () => (<Icon type="material" name="add-circle" size={20} />)
             }}
           />
-        </Tab.Navigator>
-        <Tab.Navigator>
           <Tab.Screen
             name="Login"
             component={LoginScreen}

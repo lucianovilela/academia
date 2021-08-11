@@ -15,9 +15,9 @@ import {
 import * as Analytics from 'expo-firebase-analytics';
 
 import * as WebBrowser from 'expo-web-browser';
-import styles from './AppStyle';
+import styles from '../components/AppStyle';
 
-import ContextAuth from "./InfoProvider";
+import ContextAuth from "../components/InfoProvider";
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
