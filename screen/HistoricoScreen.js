@@ -2,7 +2,7 @@ import React from 'react';
 import Timer from '../components/Timer';
 import { View, FlatList, Text } from 'react-native';
 
-const AddScreen = ({ treinos }) => {
+const HistoricoScreen = ({ navigation, treinos }) => {
     return (
         <View>
             <FlatList
@@ -23,4 +23,4 @@ const AddScreen = ({ treinos }) => {
     );
 };
 
-export default AddScreen;
+export default HistoricoScreen;

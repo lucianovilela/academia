@@ -1,8 +1,8 @@
 import React, { createContext } from "react";
 const ContextAuth = createContext();
-//import * as firebase from "firebase";
+import  firebase from "firebase";
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { pesquisa } from '../services/pesquisa';
 export default ContextAuth;
 const AuthProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(
@@ -74,7 +74,7 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  /*
+  
   React.useEffect(() => {
     // Fetch the token from storage then navigate to our appropriate place
     console.log("setting onChangeUser");
@@ -83,34 +83,34 @@ const AuthProvider = ({ children }) => {
     };
     bootstrapAsync();
   }, []);
-  */
+  
 
 
   const action = React.useMemo(() => ({
     signIn: async ({ email, password }) => {
       ///console.log('signIn:', email, password)
-/*
+
       return firebase
         .auth()
         .signInWithEmailAndPassword(email, password)
         .then(async (result) =>
           dispatch({ type: "SIGN_IN", user: result.user })
         );
-        */
+        
     },
     signOut: async () => {
-      /*return firebase
+      return firebase
         .auth()
         .signOut()
-        .then(async () => dispatch({ type: "SIGN_OUT" }));*/
+        .then(async () => dispatch({ type: "SIGN_OUT" }));
     },
     signUp: async ({ email, password }) => {
-      /*return firebase
+      return firebase
         .auth()
         .createUserWithEmailAndPassword(email, password)
         .then((result) =>
           dispatch({ type: "SIGN_IN", user: result.user })
-        );*/
+        );
     },
     fechingURL: async (url, token) => {
       dispatch({ type: "FETCHING_URL_START" })

@@ -21,12 +21,11 @@ import {
 
 const Tab = createBottomTabNavigator();
 
-function HomeScreen({ navigation, route }) {
+function HomeScreen() {
   const authContext = useContext(ContextAuth);
 
   return (
-    <ThemeProvider >
-      <SafeAreaView style={style.container}>
+    <View style={style.container}>
         <Tab.Navigator>
 
           <Tab.Screen
@@ -64,8 +63,7 @@ function HomeScreen({ navigation, route }) {
           servePersonalizedAds // true or false
         //onDidFailToReceiveAdWithError={this.bannerError} 
         />
-      </SafeAreaView>
-    </ThemeProvider>
+    </View>
   );
 }
 
