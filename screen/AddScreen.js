@@ -10,11 +10,11 @@ const Stack = createNativeStackNavigator();
 const TimeScreen = ({ navigation }) => {
     const [treinos, setTreinos] = React.useState([]);
     return (
-        <View style={{flex:1}}>
-            
+        <View style={{ flex: 1 }}>
+
             <Timer navigation={navigation} onEnd={(info) => {
                 setTreinos([...treinos, info]);
-                
+
 
             }} />
         </View>
@@ -23,11 +23,13 @@ const TimeScreen = ({ navigation }) => {
 
 const AddScreen = ({ navigation }) => {
     return (
-        <Stack.Navigator >
-            <Stack.Screen name="TimeScreen" component={TimeScreen} />
+        <Stack.Navigator screenOptions={{
+            headerShown: false
+        }}>
+            <Stack.Screen name="TimeScreen" component={TimeScreen}  />
             <Stack.Screen name="Atividade" component={ModalAtividade} />
         </Stack.Navigator>
-        );
+    );
 };
 
 export default AddScreen;

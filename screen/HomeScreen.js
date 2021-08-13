@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useState, useContext } from "react";
 
-import { View, SafeAreaView } from "react-native";
+import { View, SafeAreaView, StatusBar } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon, ThemeProvider } from 'react-native-elements';
 
@@ -21,11 +21,12 @@ import {
 
 const Tab = createBottomTabNavigator();
 
-function HomeScreen() {
+function HomeScreen({  }) {
   const authContext = useContext(ContextAuth);
 
   return (
-    <View style={style.container}>
+    <SafeAreaView style={style.container}>
+        <StatusBar/>
         <Tab.Navigator>
 
           <Tab.Screen
@@ -63,7 +64,7 @@ function HomeScreen() {
           servePersonalizedAds // true or false
         //onDidFailToReceiveAdWithError={this.bannerError} 
         />
-    </View>
+    </SafeAreaView>
   );
 }
 

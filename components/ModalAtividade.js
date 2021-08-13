@@ -1,16 +1,12 @@
 import React from 'react'
 import { View, Text } from 'react-native';
-import {Overlay, Input, Button} from 'react-native-elements';
+import {Overlay, Input, Button, CheckBox, Slider} from 'react-native-elements';
 
 export default function ModalAtividade({navigation,  onEnd, onCancel, route}) {
     const [info, setInfo] = React.useState({nome:undefined, descricao:undefined});
     return (
 
-        <View
-            
-            style={{ flex:1,alignItems: 'center', justifyContent: 'center'}}
-            
-        >
+        <View>
             <View>
                 <Input
                     placeholder="Nome da Atividade"
@@ -26,6 +22,22 @@ export default function ModalAtividade({navigation,  onEnd, onCancel, route}) {
                     }}
                     value={info.descricao}
                 />
+                <View style={{flexDirection:'row'}}>
+                    <CheckBox 
+                        title="Contar Tempo"
+                        checked={info.contarTempo}
+                        onPress={() => {
+                            setInfo({ ...info, contarTempo: !info.contarTempo });
+                        }}
+                    />
+                    <Slider
+                        label="Tempo"
+                        value={info.tempo}
+                        onValueChange={(value) => {
+                            setInfo({ ...info, tempo: value });
+                        }}
+                    />
+                </View>
                 <Button
                     title="Cadastrar"
                     onPress={() => {
